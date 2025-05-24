@@ -16,6 +16,50 @@ This one has a lot of placeholder. It allows me to set up locals config for git 
 
 This one create `.desktop` file for your installed games, making them available in launch menu such as rofi. It can be useful if you move a disk full of steam games and want to add them to your launch menu
 
+### video-converter.sh
+
+This is a utility that uses ffmpeg to convert a video format to another. Here is a little breakdown of how to use it : 
+
+```bash
+./video-converter.sh -i input.mp4 -o mkv
+```
+This will convert your file input.mp4 to input.mkv using `vp9` video codec and `libvorbis` audio codec.
+
+If you want to change those default codec you can use:
+
+```bash
+./video-converter.sh -V HEVC -A libopus -i input.mp4 -o mkv
+```
+This will switch the Video codec to HEVC and the audio codec to libopus.
+
+Now, by default the output file you convert will reside in your current working directory, if you want to override this, you have to use the `-d` parameter : 
+
+```bash
+./video-converter.sh input.mp4 -o mkv -d ~/Videos
+```
+
+And in case you want to purge the input file after the conversion, there is a parameter for that : 
+
+```bash
+./video-converter.sh input.mp4 -o mkv -p
+```
+
+And boom magic happen, the file is purged.
+
+### number-converter.sh
+
+Just a simple too to convert base 10 input to base 2, base 16 or base 8 output. You use it simply like this :
+
+```bash
+./number-converter.sh 1024 --bin
+```
+
+The output will be in binary. There is the list of valid base you might need : 
+
+- `--bin`: Binary
+- `--hex`: Hexadecimal
+- `--oct`: Octal
+
 ## VBS Section 
 
 ### cupHolder.vbs 
